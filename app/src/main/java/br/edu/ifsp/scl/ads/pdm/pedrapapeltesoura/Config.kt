@@ -5,4 +5,4 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class Config(val numeroJogadores: Int = -1): Parcelable
+data class Config(val numeroJogadores: Int = -1, val id: Int = 1): Parcelable

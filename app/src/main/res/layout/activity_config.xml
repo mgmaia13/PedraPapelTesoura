@@ -21,9 +21,23 @@
         android:id="@+id/configBt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Configuração"
+        android:text="Salvar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/numJogadores" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:text="Digite a quantidade de jogadores desejada (2 ou 3) e clique em 'salvar'"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/numJogadores" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,14 @@ import kotlin.random.nextInt
 class MainActivity : AppCompatActivity() {
     private lateinit var configActivityLauncher: ActivityResultLauncher<Intent>
     private lateinit var activityMainBinding: ActivityMainBinding
+    private val appSettingsController: ConfigController by lazy {
+        ConfigController(this)
+    }
+
+    private val appSettings: Config by lazy {
+        appSettingsController.load()
+    }
+
     var configSalve: Config = Config(2)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,12 +38,15 @@ class MainActivity : AppCompatActivity() {
             if (resultado.resultCode == RESULT_OK) {
                 if (resultado.data != null) {
                     val configSalve: Config? = resultado.data?.getParcelableExtra(Intent.EXTRA_USER)
-                    if (configSalve?.numeroJogadores != 1) {
-                        //Inserindo no banco
+                    if (configSalve?.id != 1) {
+                        if (configSalve != null){
+                            appSettingsController.insert(configSalve)
+                        }
                     } else {
-                        //atualizando no banco
+                        if (configSalve != null){
+                            appSettingsController.update(configSalve)
+                        }
                     }
-
                 }
             }
 
